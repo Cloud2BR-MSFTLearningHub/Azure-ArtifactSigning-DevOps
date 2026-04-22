@@ -164,7 +164,7 @@ terraform apply -auto-approve
 Identity validation (portal-only). In [Azure portal](https://portal.azure.com/):
 - Open the Artifact Signing account and complete **Identity validation**.
 
-     <img width="650" height="811" alt="image" src="https://github.com/user-attachments/assets/e5a6c034-744b-4a9d-9981-36fd5b30d4a2" />
+     <img width="650" alt="image" src="https://github.com/user-attachments/assets/e5a6c034-744b-4a9d-9981-36fd5b30d4a2" />
    
   https://github.com/user-attachments/assets/15359d56-9d15-4393-8db4-19971cb088a6
 
