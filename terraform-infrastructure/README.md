@@ -1,13 +1,5 @@
 # Azure Infrastructure Terraform Templates
 
-Costa Rica
-
-[![GitHub](https://img.shields.io/badge/--181717?logo=github&logoColor=ffffff)](https://github.com/) [Cloud2BR OSS - Learning Hub](https://github.com/Cloud2BR-MSFTLearningHub)
-
-Last updated: 2026-02-02
-
-----------
-
 > This approach focuses on `setting up the required infrastructure via Terraform`. It allows for source control of not only the solution code, connections, and setups `but also the infrastructure itself`.
 
 <div align="center">
@@ -59,8 +51,8 @@ Templates structure:
 > Artifact Signing Account:
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/8c302be2-7762-4496-8166-b3bea345fd48" alt="Centered Image" style="border: 2px solid #4CAF50; border-radius: 5px; padding: 5px;"/>
-</div
+  <img src="https://github.com/user-attachments/assets/8c302be2-7762-4496-8166-b3bea345fd48" alt="Artifact Signing account" style="border: 2px solid #4CAF50; border-radius: 5px; padding: 5px;"/>
+</div>
   
 ## How to execute it 
 
@@ -73,68 +65,58 @@ graph TD;
     C -->|Delete Resource if needed| F[terraform destroy]
 ```
 
-> [!IMPORTANT]
-> Please modify `terraform.tfvars` with your information, then run the following flow. If you need more visual guidance, please check the video that illustrates the provisioning steps. 
+!!! important
+  Update `terraform.tfvars` with your information before running these commands.
 
-1. **Login to Azure**: This command logs you into your Azure account. It opens a browser window where you can enter your Azure credentials. Once logged in, you can manage your Azure resources from the command line.
+### 1. Sign in to Azure
 
-    > Go to the path where Terraform files are located:
+Change to the Terraform directory, then authenticate with the Azure CLI.
 
-    ```sh
-    cd terraform-infrastructure
-    ```
-    
-    ```sh
-    az login
-    ```
+```sh
+cd terraform-infrastructure
+az login
+```
 
-    <img width="550" alt="img" src="https://github.com/user-attachments/assets/53b47aa7-134e-4cf7-b0b8-cdebdd0583ed" />
+<img width="550" alt="Terraform directory in terminal" src="https://github.com/user-attachments/assets/53b47aa7-134e-4cf7-b0b8-cdebdd0583ed" />
 
-    <img width="550" alt="img" src="https://github.com/user-attachments/assets/1d9a247d-3dc9-472f-9305-4e4f0ecb72f1" />
+<img width="550" alt="Azure CLI authenticated" src="https://github.com/user-attachments/assets/1d9a247d-3dc9-472f-9305-4e4f0ecb72f1" />
 
-2. **Initialize Terraform**: Initializes the working directory containing the Terraform configuration files. It downloads the necessary provider plugins and sets up the backend for storing the state.
+### 2. Initialize Terraform
 
-    ``` sh
-    terraform init
-    ```
+Download the required provider plugins and initialize the backend.
 
-   <img width="550" alt="img" src="https://github.com/user-attachments/assets/a7a32891-ad72-423a-a1fe-bdb50925b546" />
+```sh
+terraform init
+```
 
-3. **Terraform Provisioning Stage**: 
+<img width="550" alt="Terraform initialization completed" src="https://github.com/user-attachments/assets/a7a32891-ad72-423a-a1fe-bdb50925b546" />
 
-   - **Review**: Creates an execution plan, showing what actions Terraform will take to achieve the desired state defined in your configuration files. It uses the variable values specified in `terraform.tfvars`.
+### 3. Review the plan
 
-        ```sh
-        terraform plan -var-file terraform.tfvars
-        ```
+Inspect the planned changes before provisioning resources.
 
-        > At the end, you will see a message in green if everything was executed successfully: 
+```sh
+terraform plan -var-file terraform.tfvars
+```
 
-        <img width="550" alt="Screenshot 2025-03-18 145143" src="https://github.com/user-attachments/assets/4741e863-1ccd-4f2a-a0b8-d5d1964bd890" />
+<img width="550" alt="Terraform plan completed" src="https://github.com/user-attachments/assets/4741e863-1ccd-4f2a-a0b8-d5d1964bd890" />
 
-   - **Order Now**: Applies the changes required to reach the desired state of the configuration. It prompts for confirmation before making any changes. It also uses the variable values specified in `terraform.tfvars`.
+### 4. Apply the configuration
 
-        ```sh
-        terraform apply -var-file terraform.tfvars
-        ```
+Apply the reviewed changes. Terraform will prompt for confirmation.
 
-        > At the end, you will see a message in green if everything was executed successfully: 
+```sh
+terraform apply -var-file terraform.tfvars
+```
 
-        <img width="550" alt="image" src="https://github.com/user-attachments/assets/2b32b63f-3e9f-46da-a5e9-c39360135251">
+<img width="550" alt="Terraform apply completed" src="https://github.com/user-attachments/assets/2b32b63f-3e9f-46da-a5e9-c39360135251" />
 
-   - **Remove**: Destroys the infrastructure managed by Terraform. It prompts for confirmation before deleting any resources. It also uses the variable values specified in `terraform.tfvars`.
-    
-        ```sh
-        terraform destroy -var-file terraform.tfvars
-        ```
+### 5. Remove resources when finished
 
-        > At the end, you will see a message in green if everything was executed successfully: 
+Destroy the Terraform-managed resources when they are no longer required. Terraform will prompt for confirmation.
 
-        <img width="550" alt="image" src="https://github.com/user-attachments/assets/f2089d03-3a3d-431d-b462-8148ef519104">
+```sh
+terraform destroy -var-file terraform.tfvars
+```
 
-<!-- START BADGE -->
-<div align="center">
-  <img src="https://img.shields.io/badge/Total%20views-1416-limegreen" alt="Total views">
-  <p>Refresh Date: 2026-02-02</p>
-</div>
-<!-- END BADGE -->
+<img width="550" alt="Terraform destroy completed" src="https://github.com/user-attachments/assets/f2089d03-3a3d-431d-b462-8148ef519104" />

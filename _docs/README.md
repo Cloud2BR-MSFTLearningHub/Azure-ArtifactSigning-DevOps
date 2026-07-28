@@ -1,12 +1,6 @@
 # Internal runbook (maintainers)
 
-Costa Rica
-
-[![GitHub](https://img.shields.io/badge/--181717?logo=github&logoColor=ffffff)](https://github.com/) [Cloud2BR OSS - Learning Hub](https://github.com/Cloud2BR-MSFTLearningHub)
-
-----------
-
-This repo intentionally keeps the main [README.md](../README.md) focused on a minimal, demo-friendly UX.
+This repo intentionally keeps the main [README.md](https://cloud2br-msftlearninghub.github.io/Azure-ArtifactSigning-DevOps/) focused on a minimal, demo-friendly UX.
 
 The scripts below exist to make the setup idempotent and “one command” for end users, while still giving maintainers an escape hatch for non-interactive automation.
 
@@ -76,9 +70,3 @@ If you want bootstrap to run a single Terraform apply (no prompt), use:
 
 Artifact Signing identity validation is a service requirement and is currently portal-driven. The Identity validation Id is not exposed via the management API for the signing account, so Terraform cannot “wait and fetch” it.
 
-<!-- START BADGE -->
-<div align="center">
-  <img src="https://img.shields.io/badge/Total%20views-1280-limegreen" alt="Total views">
-  <p>Refresh Date: 2026-02-19</p>
-</div>
-<!-- END BADGE -->
